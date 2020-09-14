@@ -36,18 +36,17 @@ struct Spectrum<'b> {
 }
 
 fn eca_rule_result(x: (usize, usize, usize), rule: Vec<usize>) -> usize {
-	let rule_loc: usize;
-	match x {
-		(0, 0, 0) => rule_loc = 7,
-		(0, 0, 1) => rule_loc = 6,
-		(0, 1, 0) => rule_loc = 5,
-		(0, 1, 1) => rule_loc = 4,
-		(1, 0, 0) => rule_loc = 3,
-		(1, 0, 1) => rule_loc = 2,
-		(1, 1, 0) => rule_loc = 1,
-		(1, 1, 1) => rule_loc = 0,
+	let rule_loc = match x {
+		(0, 0, 0) => 7,
+		(0, 0, 1) => 6,
+		(0, 1, 0) => 5,
+		(0, 1, 1) => 4,
+		(1, 0, 0) => 3,
+		(1, 0, 1) => 2,
+		(1, 1, 0) => 1,
+		(1, 1, 1) => 0,
 		_ => panic!("Not allowed"),
-	}
+	};
 	if rule[rule_loc] == 1 {
 		1
 	} else {
